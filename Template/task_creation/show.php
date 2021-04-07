@@ -15,13 +15,14 @@
         </div>
 
         <div class="task-form-secondary-column">
-            <?= $this->task->renderColorField($values) ?>
-            <?= $this->task->renderAssigneeField($users_list, $values, $errors) ?>
-            <?= $this->task->renderCategoryField($categories_list, $values, $errors) ?>
-            <?= $this->task->renderSwimlaneField($swimlanes_list, $values, $errors) ?>
-            <?= $this->task->renderColumnField($columns_list, $values, $errors) ?>
-            <?= $this->task->renderPriorityField($project, $values) ?>
-
+            <?php if ($this->projectRole->getProjectUserRole($project['id']) !== \Kanboard\Core\Security\Role::PROJECT_VIEWER): ?>
+                <?= $this->task->renderColorField($values) ?>
+                <?= $this->task->renderAssigneeField($users_list, $values, $errors) ?>
+                <?= $this->task->renderCategoryField($categories_list, $values, $errors) ?>
+                <?= $this->task->renderSwimlaneField($swimlanes_list, $values, $errors) ?>
+                <?= $this->task->renderColumnField($columns_list, $values, $errors) ?>
+                <?= $this->task->renderPriorityField($project, $values) ?>
+            <?php endif ?>
             <?= $this->hook->render('template:task:form:second-column', array('values' => $values, 'errors' => $errors)) ?>
         </div>
 
@@ -42,7 +43,9 @@
 
             <?php if (! isset($duplicate)): ?>
                 <?= $this->form->checkbox('another_task', t('Create another task'), 1, isset($values['another_task']) && $values['another_task'] == 1, '', array("tabindex" => "16")) ?>
-                <?= $this->form->checkbox('duplicate_multiple_projects', t('Duplicate to multiple projects'), 1, false, '', array("tabindex" => "17")) ?>
+                <?php if ($this->projectRole->getProjectUserRole($project['id']) !== \Kanboard\Core\Security\Role::PROJECT_VIEWER): ?>
+                    <?= $this->form->checkbox('duplicate_multiple_projects', t('Duplicate to multiple projects'), 1, false, '', array("tabindex" => "17")) ?>
+                <?php endif ?>
             <?php endif ?>
 
             <?= $this->modal->submitButtons() ?>

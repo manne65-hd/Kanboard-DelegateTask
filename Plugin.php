@@ -22,6 +22,8 @@ class Plugin extends Base
         // template overrides
         $this->template->setTemplateOverride('board/table_column', 'DelegateTask:board/table_column');
         $this->template->setTemplateOverride('project_header/dropdown', 'DelegateTask:project_header/dropdown');
+        $this->template->setTemplateOverride('task_creation/show', 'DelegateTask:task_creation/show');
+
     }
 
     public function onStartup()

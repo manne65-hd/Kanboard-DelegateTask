@@ -4,14 +4,24 @@ namespace Kanboard\Plugin\DelegateTask;
 
 use Kanboard\Core\Plugin\Base;
 use Kanboard\Core\Translator;
+use Kanboard\Core\Security\Role;
 
+use Kanboard\Model\TaskModel;
 
 
 class Plugin extends Base
 {
     public function initialize()
     {
+        // Set relevant rights, so that project-viewers can create a task
+        $this->projectAccessMap->add('TaskCreationController', array('show','save'), Role::PROJECT_VIEWER);
+        $this->projectAccessMap->add('TaskMailController', array('create'), Role::PROJECT_VIEWER);
+        //Helpers
+        $this->helper->register('DelegateTaskHelper', '\Kanboard\Plugin\DelegateTask\Helper\DelegateTaskHelper');
+
+        // template overrides
         $this->template->setTemplateOverride('board/table_column', 'DelegateTask:board/table_column');
+        $this->template->setTemplateOverride('project_header/dropdown', 'DelegateTask:project_header/dropdown');
     }
 
     public function onStartup()

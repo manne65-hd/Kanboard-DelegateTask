@@ -15,13 +15,13 @@
 
         <!-- column in expanded mode -->
         <div class="board-column-expanded">
-            <?php if (! $not_editable && $this->projectRole->canCreateTaskInColumn($column['project_id'], $column['id'])): ?>
+            <?php if (! $not_editable && $this->projectRole->canCreateTaskInColumn($column['project_id'], $column['id']) && $this->projectRole->getProjectUserRole($column['project_id']) !== \Kanboard\Core\Security\Role::PROJECT_VIEWER): ?>
                 <?= $this->task->getNewBoardTaskButton($swimlane, $column) ?>
             <?php else: ?>
                 <?php $my_col_count = isset($my_col_count) ? $my_col_count :  0; ?>
                 <?php $my_col_count++; ?>
                 <?php if ($my_col_count === 1): ?>
-                    <a href="http://yourAPI.local?p=<?= $column['project_id'] ?>&s=<?= $swimlane['id'] ?>&c=<?= $column['id'] ?>&u=<?= $this->user->getId() ?>" title="<?= t('Delegate task ...') ?>"> <i class="fa fa-arrow-circle-o-right fa-lg"></i></a>
+                    <?= $this->helper->DelegateTaskHelper->getNewBoardDelegateTaskButton($swimlane, $column) ?>
                 <?php endif ?>
             <?php endif ?>
 

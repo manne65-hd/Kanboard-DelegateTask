@@ -1,5 +1,5 @@
 <?php
 
 return array(
-    'Delegate task ...' => 'Aufgabe delegieren ...',
+    'Delegate a task to this project' => 'Delegiere eine Aufgabe an dieses Projekt',
 );

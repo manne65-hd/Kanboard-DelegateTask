@@ -21,7 +21,7 @@ Installation
 
 You have the choice between 2 methods:
 
-1. Download the zip file and decompress everything under the directory `plugins/DuplicateTaskOptions`
-2. Clone this repository into the folder `plugins/DuplicateTaskOptions`
+1. Download the zip file and decompress everything under the directory `plugins/DelegateTask`
+2. Clone this repository into the folder `plugins/DelegateTask`
 
 Note: Plugin folder is case-sensitive.

@@ -15,14 +15,14 @@
         </div>
 
         <div class="task-form-secondary-column">
+            <?= $this->task->renderColorField($values) ?>
+            <?= $this->task->renderAssigneeField($users_list, $values, $errors) ?>
+            <?= $this->task->renderCategoryField($categories_list, $values, $errors) ?>
+            <?= $this->task->renderSwimlaneField($swimlanes_list, $values, $errors) ?>
             <?php if ($this->projectRole->getProjectUserRole($project['id']) !== \Kanboard\Core\Security\Role::PROJECT_VIEWER): ?>
-                <?= $this->task->renderColorField($values) ?>
-                <?= $this->task->renderAssigneeField($users_list, $values, $errors) ?>
-                <?= $this->task->renderCategoryField($categories_list, $values, $errors) ?>
-                <?= $this->task->renderSwimlaneField($swimlanes_list, $values, $errors) ?>
                 <?= $this->task->renderColumnField($columns_list, $values, $errors) ?>
-                <?= $this->task->renderPriorityField($project, $values) ?>
             <?php endif ?>
+            <?= $this->task->renderPriorityField($project, $values) ?>
             <?= $this->hook->render('template:task:form:second-column', array('values' => $values, 'errors' => $errors)) ?>
         </div>
 

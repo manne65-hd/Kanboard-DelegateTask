@@ -3,7 +3,8 @@ DelegateTask for kanboard
 
 Allows project-viewers to delegate a task into the first column of the project
 
-## This is a BETA-release (may still have BUGS!!!)
+## This is the first working BETA-Release and might still contain BUGS!!!
+
 
 Author
 ------

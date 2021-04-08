@@ -15,7 +15,6 @@ class Plugin extends Base
     {
         // Set relevant rights, so that project-viewers can create a task
         $this->projectAccessMap->add('TaskCreationController', array('show','save'), Role::PROJECT_VIEWER);
-        $this->projectAccessMap->add('TaskMailController', array('create'), Role::PROJECT_VIEWER);
         //Helpers
         $this->helper->register('DelegateTaskHelper', '\Kanboard\Plugin\DelegateTask\Helper\DelegateTaskHelper');
 

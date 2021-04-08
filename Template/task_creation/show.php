@@ -21,6 +21,8 @@
             <?= $this->task->renderSwimlaneField($swimlanes_list, $values, $errors) ?>
             <?php if ($this->projectRole->getProjectUserRole($project['id']) !== \Kanboard\Core\Security\Role::PROJECT_VIEWER): ?>
                 <?= $this->task->renderColumnField($columns_list, $values, $errors) ?>
+            <?php else: ?>
+                <?= $this->helper->DisabledTaskFieldsHelper->renderDisabledColumnField($columns_list, $values, $errors) ?>
             <?php endif ?>
             <?= $this->task->renderPriorityField($project, $values) ?>
             <?= $this->hook->render('template:task:form:second-column', array('values' => $values, 'errors' => $errors)) ?>

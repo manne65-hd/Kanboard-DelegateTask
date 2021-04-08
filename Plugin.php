@@ -18,13 +18,10 @@ class Plugin extends Base
         $this->projectAccessMap->add('TaskMailController', array('create'), Role::PROJECT_VIEWER);
         //Helpers
         $this->helper->register('DelegateTaskHelper', '\Kanboard\Plugin\DelegateTask\Helper\DelegateTaskHelper');
-        $this->helper->register('DisabledFormFieldsHelper', '\Kanboard\Plugin\DelegateTask\Helper\DisabledFormFieldsHelper');
-        $this->helper->register('DisabledTaskFieldsHelper', '\Kanboard\Plugin\DelegateTask\Helper\DisabledTaskFieldsHelper');
 
         // template overrides
         $this->template->setTemplateOverride('board/table_column', 'DelegateTask:board/table_column');
         $this->template->setTemplateOverride('project_header/dropdown', 'DelegateTask:project_header/dropdown');
-        $this->template->setTemplateOverride('task_creation/show', 'DelegateTask:task_creation/show');
 
     }
 

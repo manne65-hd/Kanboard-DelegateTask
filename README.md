@@ -26,9 +26,11 @@ Screenshots
 ![03-DelegateTaskDropdown](https://user-images.githubusercontent.com/48651533/114271616-908a3e80-9a12-11eb-9972-aa2aa71269a2.png)
 
 
-
-
-## This is the first working BETA-Release and might still contain BUGS!!!
+## This is the second working BETA-Release
+ - I have tested this on a couple of my local test-installations
+ - I you are using other plugins that OVERWRITE the template *board/table_column.php* please contact me, so I can check compatibilty!
+   - My ["SortBoardByDates"-plugin](https://github.com/manne65-hd/Kanboard-SortBoardByDates) is already compatible!
+ - MIGHT STILL CONTAIN BUGS
 
 
 Author

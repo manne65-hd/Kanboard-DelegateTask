@@ -52,6 +52,6 @@ class Plugin extends Base
 
     public function getPluginHomepage()
     {
-        return 'https://github.com/manne65-hd/DelegateTask';
+        return 'https://github.com/manne65-hd/Kanboard-DelegateTask';
     }
 }
